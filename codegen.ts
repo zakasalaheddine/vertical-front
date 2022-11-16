@@ -1,12 +1,12 @@
 import { CodegenConfig } from '@graphql-codegen/cli'
-import { GRAPHQL_API_URL } from './utils/constants'
+import { GRAPHQL_API_URL } from './src/utils/constants'
 
 const config: CodegenConfig = {
   schema: GRAPHQL_API_URL,
-  documents: ['./**/*.tsx', './graphql/queries/**/*.ts'],
+  documents: ['./src/**/*.tsx', './src/**/*.ts'],
   ignoreNoDocuments: true, // for better experience with the watcher
   generates: {
-    './graphql/gql/': {
+    './src/graphql/gql/': {
       preset: 'client',
       plugins: []
     }

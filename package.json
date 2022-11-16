@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"yarn generate --watch\"",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "all-dev": "concurrently \"next dev\" \"yarn generate --watch\"",
     "generate": "graphql-codegen",
-    "prestart": "yarn generate",
-    "predev": "yarn generate"
+    "prestart": "yarn generate"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.16.1",

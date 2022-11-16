@@ -1,5 +1,5 @@
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query'
-import { useEffect } from 'react'
+import HomePage from '../components/homePage'
 import { getPropertyByIdRequest } from '../requests/getPropertyByIdRequest'
 
 export default function Home() {
@@ -8,14 +8,9 @@ export default function Home() {
     queryFn: getPropertyByIdRequest
   })
 
-  useEffect(() => {
-    if (isLoading) {
-      console.log('Loading')
-    } else {
-      console.log({ data: data?.Property_by_id?.id })
-    }
-  }, [isLoading, data])
-  return <div className="container text-2xl">Hello</div>
+  if (isLoading) return <div className="loading">Loading...</div>
+
+  return <HomePage homePage={data?.Property_by_id} />
 }
 
 export async function getStaticProps() {
