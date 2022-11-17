@@ -38,5 +38,6 @@ export const HomePageFragment = graphql(/* GraphQL */ `
         }
       }
     }
+    footerDisclaimer
   }
 `)
