@@ -28,6 +28,7 @@ export const HomePageFragment = graphql(/* GraphQL */ `
     sections {
       id
       item {
+				__typename
         ... on compareSection {
           id
           section
