@@ -8,13 +8,15 @@ export default function Footer({ disclaimer, logo }: any) {
     <footer className="flex flex-col items-center justify-center my-8 mx-5">
       {logoSrc ? (
         <div className="h-16">
-          <Image
-            src={logoSrc}
-            alt="Picture of the author"
-            height={logo.height}
-            width={logo.width}
-            className="h-full w-auto"
-          />
+          <Link href="/">
+            <Image
+              src={logoSrc}
+              alt="Picture of the author"
+              height={logo.height}
+              width={logo.width}
+              className="h-full w-auto"
+            />
+          </Link>
         </div>
       ) : null}
       <nav className="mb-5">
