@@ -13,6 +13,7 @@ export default function Header({ headline, thumbnail, excerpt }: any) {
             height={thumbnail.height}
             width={thumbnail.width}
             className="w-full"
+            priority
           />
         ) : null}
         <div className="absolute bottom-0 h-full w-full bg-gradient-to-b from-transparent to-black/70 flex flex-col px-10 justify-end pb-2">

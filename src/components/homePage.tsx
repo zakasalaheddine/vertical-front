@@ -4,6 +4,7 @@ import Header from './header'
 import Navbar from './navbar'
 import Footer from './footer'
 import Content from './content'
+import CompareSection from './compare'
 
 export default function HomePage(props: { homePage: any }) {
   const homePage = useFragment(HomePageFragment, props.homePage)
@@ -18,6 +19,14 @@ export default function HomePage(props: { homePage: any }) {
       {homePage.sections?.map((entry, idx) => {
         if (entry?.item?.__typename === 'content')
           return <Content data={entry?.item?.content} key={`section__${idx}`} />
+
+        if (entry?.item?.__typename === 'compareSection')
+          return (
+            <CompareSection
+              section={entry?.item?.section}
+              key={`section__${idx}`}
+            />
+          )
         return null
       })}
 
