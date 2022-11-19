@@ -5,6 +5,11 @@ export const LegalPageFragment = graphql(/* GraphQL */ `
     id
 		name
 		description
+		ogImage{
+			id
+			filename_download
+		}
+		website
 		logo {
 			title
 			filename_download

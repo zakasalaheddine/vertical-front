@@ -38,6 +38,7 @@ export type Property = {
   id: Scalars['ID'];
   logo?: Maybe<Directus_Files>;
   name?: Maybe<Scalars['String']>;
+  ogImage?: Maybe<Directus_Files>;
   sections?: Maybe<Array<Maybe<Property_Sections>>>;
   sections_func?: Maybe<Count_Functions>;
   sort?: Maybe<Scalars['Int']>;
@@ -45,6 +46,7 @@ export type Property = {
   thumbnail?: Maybe<Directus_Files>;
   user_created?: Maybe<Scalars['String']>;
   user_updated?: Maybe<Scalars['String']>;
+  website?: Maybe<Scalars['String']>;
 };
 
 
@@ -59,6 +61,16 @@ export type PropertyFaviconArgs = {
 
 
 export type PropertyLogoArgs = {
+  filter?: InputMaybe<Directus_Files_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type PropertyOgImageArgs = {
   filter?: InputMaybe<Directus_Files_Filter>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -117,12 +129,14 @@ export type Property_Aggregated_Count = {
   id?: Maybe<Scalars['Int']>;
   logo?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['Int']>;
+  ogImage?: Maybe<Scalars['Int']>;
   sections?: Maybe<Scalars['Int']>;
   sort?: Maybe<Scalars['Int']>;
   status?: Maybe<Scalars['Int']>;
   thumbnail?: Maybe<Scalars['Int']>;
   user_created?: Maybe<Scalars['Int']>;
   user_updated?: Maybe<Scalars['Int']>;
+  website?: Maybe<Scalars['Int']>;
 };
 
 export type Property_Aggregated_Fields = {
@@ -150,6 +164,7 @@ export type Property_Filter = {
   id?: InputMaybe<Number_Filter_Operators>;
   logo?: InputMaybe<Directus_Files_Filter>;
   name?: InputMaybe<String_Filter_Operators>;
+  ogImage?: InputMaybe<Directus_Files_Filter>;
   sections?: InputMaybe<Property_Sections_Filter>;
   sections_func?: InputMaybe<Count_Function_Filter_Operators>;
   sort?: InputMaybe<Number_Filter_Operators>;
@@ -157,6 +172,7 @@ export type Property_Filter = {
   thumbnail?: InputMaybe<Directus_Files_Filter>;
   user_created?: InputMaybe<String_Filter_Operators>;
   user_updated?: InputMaybe<String_Filter_Operators>;
+  website?: InputMaybe<String_Filter_Operators>;
 };
 
 export type Property_Sections = {
@@ -1074,8 +1090,6 @@ export type Content = {
   date_updated_func?: Maybe<Datetime_Functions>;
   id: Scalars['ID'];
   name?: Maybe<Scalars['String']>;
-  sort?: Maybe<Scalars['Int']>;
-  status?: Maybe<Scalars['String']>;
   user_created?: Maybe<Scalars['String']>;
   user_updated?: Maybe<Scalars['String']>;
 };
@@ -1101,8 +1115,6 @@ export type Content_Aggregated_Count = {
   date_updated?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['Int']>;
-  sort?: Maybe<Scalars['Int']>;
-  status?: Maybe<Scalars['Int']>;
   user_created?: Maybe<Scalars['Int']>;
   user_updated?: Maybe<Scalars['Int']>;
 };
@@ -1110,7 +1122,6 @@ export type Content_Aggregated_Count = {
 export type Content_Aggregated_Fields = {
   __typename?: 'content_aggregated_fields';
   id?: Maybe<Scalars['Float']>;
-  sort?: Maybe<Scalars['Float']>;
 };
 
 export type Content_Filter = {
@@ -1123,8 +1134,6 @@ export type Content_Filter = {
   date_updated_func?: InputMaybe<Datetime_Function_Filter_Operators>;
   id?: InputMaybe<Number_Filter_Operators>;
   name?: InputMaybe<String_Filter_Operators>;
-  sort?: InputMaybe<Number_Filter_Operators>;
-  status?: InputMaybe<String_Filter_Operators>;
   user_created?: InputMaybe<String_Filter_Operators>;
   user_updated?: InputMaybe<String_Filter_Operators>;
 };
@@ -2259,9 +2268,9 @@ export type Tools_Filter = {
   tools_func?: InputMaybe<Count_Function_Filter_Operators>;
 };
 
-export type HomePageFragmentFragment = { __typename?: 'Property', id: string, name?: string | null, description?: string | null, headline?: string | null, excerpt?: string | null, footerDisclaimer?: string | null, logo?: { __typename?: 'directus_files', title?: string | null, filename_download: string, height?: number | null, width?: number | null, id: string } | null, favicon?: { __typename?: 'directus_files', filename_download: string, id: string } | null, thumbnail?: { __typename?: 'directus_files', title?: string | null, filename_download: string, height?: number | null, width?: number | null, id: string } | null, sections?: Array<{ __typename?: 'Property_sections', id: string, item?: { __typename: 'compareSection', id: string, section?: string | null } | { __typename: 'content', id: string, content?: string | null } | null } | null> | null } & { ' $fragmentName'?: 'HomePageFragmentFragment' };
+export type HomePageFragmentFragment = { __typename?: 'Property', id: string, name?: string | null, description?: string | null, website?: string | null, headline?: string | null, excerpt?: string | null, footerDisclaimer?: string | null, logo?: { __typename?: 'directus_files', title?: string | null, filename_download: string, height?: number | null, width?: number | null, id: string } | null, favicon?: { __typename?: 'directus_files', filename_download: string, id: string } | null, ogImage?: { __typename?: 'directus_files', id: string, filename_download: string } | null, thumbnail?: { __typename?: 'directus_files', title?: string | null, filename_download: string, height?: number | null, width?: number | null, id: string } | null, sections?: Array<{ __typename?: 'Property_sections', id: string, item?: { __typename: 'compareSection', id: string, section?: string | null } | { __typename: 'content', id: string, content?: string | null } | null } | null> | null } & { ' $fragmentName'?: 'HomePageFragmentFragment' };
 
-export type LegalPageFragmentFragment = { __typename?: 'Property', id: string, name?: string | null, description?: string | null, footerDisclaimer?: string | null, PrivacyPolicy?: string | null, TermsConditions?: string | null, AffiliateDisclosure?: string | null, logo?: { __typename?: 'directus_files', title?: string | null, filename_download: string, height?: number | null, width?: number | null, id: string } | null, favicon?: { __typename?: 'directus_files', filename_download: string, id: string } | null } & { ' $fragmentName'?: 'LegalPageFragmentFragment' };
+export type LegalPageFragmentFragment = { __typename?: 'Property', id: string, name?: string | null, description?: string | null, website?: string | null, footerDisclaimer?: string | null, PrivacyPolicy?: string | null, TermsConditions?: string | null, AffiliateDisclosure?: string | null, ogImage?: { __typename?: 'directus_files', id: string, filename_download: string } | null, logo?: { __typename?: 'directus_files', title?: string | null, filename_download: string, height?: number | null, width?: number | null, id: string } | null, favicon?: { __typename?: 'directus_files', filename_download: string, id: string } | null } & { ' $fragmentName'?: 'LegalPageFragmentFragment' };
 
 export type LegalPageQueryVariables = Exact<{
   id: Scalars['ID'];
@@ -2283,7 +2292,7 @@ export type PropertyQuery = { __typename?: 'Query', Property_by_id?: (
     & { ' $fragmentRefs'?: { 'HomePageFragmentFragment': HomePageFragmentFragment } }
   ) | null };
 
-export const HomePageFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HomePageFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Property"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"favicon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"headline"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"excerpt"}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"item"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"compareSection"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"section"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"content"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"footerDisclaimer"}}]}}]} as unknown as DocumentNode<HomePageFragmentFragment, unknown>;
-export const LegalPageFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"LegalPageFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Property"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"favicon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"footerDisclaimer"}},{"kind":"Field","name":{"kind":"Name","value":"PrivacyPolicy"}},{"kind":"Field","name":{"kind":"Name","value":"TermsConditions"}},{"kind":"Field","name":{"kind":"Name","value":"AffiliateDisclosure"}}]}}]} as unknown as DocumentNode<LegalPageFragmentFragment, unknown>;
+export const HomePageFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HomePageFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Property"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"favicon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ogImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"filename_download"}}]}},{"kind":"Field","name":{"kind":"Name","value":"website"}},{"kind":"Field","name":{"kind":"Name","value":"headline"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"excerpt"}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"item"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"compareSection"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"section"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"content"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"footerDisclaimer"}}]}}]} as unknown as DocumentNode<HomePageFragmentFragment, unknown>;
+export const LegalPageFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"LegalPageFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Property"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"ogImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"filename_download"}}]}},{"kind":"Field","name":{"kind":"Name","value":"website"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"favicon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"filename_download"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}},{"kind":"Field","name":{"kind":"Name","value":"footerDisclaimer"}},{"kind":"Field","name":{"kind":"Name","value":"PrivacyPolicy"}},{"kind":"Field","name":{"kind":"Name","value":"TermsConditions"}},{"kind":"Field","name":{"kind":"Name","value":"AffiliateDisclosure"}}]}}]} as unknown as DocumentNode<LegalPageFragmentFragment, unknown>;
 export const LegalPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"legalPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Property_by_id"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"LegalPageFragment"}}]}}]}},...LegalPageFragmentFragmentDoc.definitions]} as unknown as DocumentNode<LegalPageQuery, LegalPageQueryVariables>;
 export const PropertyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"property"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Property_by_id"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"HomePageFragment"}}]}}]}},...HomePageFragmentFragmentDoc.definitions]} as unknown as DocumentNode<PropertyQuery, PropertyQueryVariables>;

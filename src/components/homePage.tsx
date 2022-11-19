@@ -5,11 +5,18 @@ import Navbar from './navbar'
 import Footer from './footer'
 import Content from './content'
 import CompareSection from './compare'
+import Seo from './seo'
 
 export default function HomePage(props: { homePage: any }) {
   const homePage = useFragment(HomePageFragment, props.homePage)
   return (
     <>
+      <Seo
+        title={homePage.name || ''}
+        description={homePage.description || ''}
+        websiteUrl={homePage.website || ''}
+        ogImage={homePage.ogImage}
+      />
       <Navbar logo={homePage.logo} />
       <Header
         headline={homePage.headline}

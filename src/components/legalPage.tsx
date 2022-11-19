@@ -3,6 +3,7 @@ import Navbar from './navbar'
 import Footer from './footer'
 import Content from './content'
 import { LegalPageFragment } from '../graphql/fragments/legalPageFragment'
+import Seo from './seo'
 
 type LegalPageProps = {
   data: any
@@ -20,6 +21,12 @@ export default function LegalPage({
   const { logo, footerDisclaimer } = legalPage
   return (
     <>
+      <Seo
+        title={`${legalPage.name} | ${headline}` || ''}
+        description={legalPage.description || ''}
+        websiteUrl={legalPage.website || ''}
+        ogImage={legalPage.ogImage}
+      />
       <Navbar logo={logo} />
       <h1 className="text-center text-5xl font-bold">{headline}</h1>
       <Content data={pageContent} />

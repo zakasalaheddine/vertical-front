@@ -16,6 +16,11 @@ export const HomePageFragment = graphql(/* GraphQL */ `
       filename_download
       id
     }
+		ogImage{
+			id
+			filename_download
+		}
+		website
     headline
     thumbnail {
       title
