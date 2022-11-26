@@ -6,15 +6,25 @@ type SeoProps = {
   description: string
   websiteUrl: string
   ogImage: any
+  favicon: any
 }
 
-export default function Seo({ title, description, ogImage, websiteUrl }: SeoProps) {
+export default function Seo({
+  title,
+  description,
+  ogImage,
+  websiteUrl,
+  favicon
+}: SeoProps) {
   const ogImageSrc = useDirectusFileUrl(ogImage)
+  const faviconSrc = useDirectusFileUrl(favicon)
   return (
     <Head>
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
+
+      <link href={faviconSrc} rel="shortcut icon" type="image/x-icon" />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={websiteUrl} />

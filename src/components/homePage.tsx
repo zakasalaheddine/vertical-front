@@ -16,6 +16,7 @@ export default function HomePage(props: { homePage: any }) {
         description={homePage.description || ''}
         websiteUrl={homePage.website || ''}
         ogImage={homePage.ogImage}
+        favicon={homePage.favicon}
       />
       <Navbar logo={homePage.logo} />
       <Header

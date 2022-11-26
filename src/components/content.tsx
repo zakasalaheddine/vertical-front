@@ -12,10 +12,16 @@ export default function Content({ data }: any) {
 const ContentSection = styled.section`
   h2 {
     font-size: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+  h3{
+    font-size: 22px;
+    margin-bottom: 12px;
     font-weight: bold;
   }
   p {
     line-height: 1.8;
+    margin-bottom: 10px;
   }
 `

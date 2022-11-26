@@ -26,6 +26,7 @@ export default function LegalPage({
         description={legalPage.description || ''}
         websiteUrl={legalPage.website || ''}
         ogImage={legalPage.ogImage}
+        favicon={legalPage.favicon}
       />
       <Navbar logo={logo} />
       <h1 className="text-center text-5xl font-bold">{headline}</h1>

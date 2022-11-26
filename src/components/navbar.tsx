@@ -14,7 +14,7 @@ export default function Navbar({ logo }: any) {
             alt="Picture of the author"
             height={logo.height}
             width={logo.width}
-            className="h-full w-auto"
+            className="h-40 w-auto mt-4"
           />
         </Link>
       ) : null}
